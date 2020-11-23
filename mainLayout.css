@@ -1,0 +1,883 @@
+/* Copyright (c) 2017 MIT 6.813/6.831 course staff, all rights reserved.
+ * Redistribution of original or derived work requires permission of course staff.
+ */
+
+/* REMOVE ME - dashed lines and height for debugging */
+
+
+/* Your css code here! */
+.col-md-4{
+  display:inline;
+	padding: 10px 10px;	 /*Gives spacing of 10px*/
+  margin-left: auto;
+  margin-right: auto;
+}
+body{
+  background-color: rgb(10, 10, 177);
+  
+}
+#mainColumn{
+  min-width: 50%;
+  max-width: 70%;
+}
+#firstColumn{
+  max-width: 30%;
+  min-width: 200px;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 15px;
+}
+.btn:hover {
+  box-shadow: 0px 0px 2px 2px gray; 
+}
+
+
+#title{
+  padding-top: 75px;
+	font-size: 35px;
+	text-align: center;
+ 
+}
+#ngame-button{
+  text-align: center;
+  display: block;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+
+.btn img {
+  position: center;
+  width: 85px;
+  height: 75px;
+  left: 166px;
+  top: 260px;
+  overflow: visible;
+}
+#home-button{
+  width: 100%;
+  padding: 5px;
+  margin-top: 100px;
+  font-weight: bold;
+}
+#patient-button{
+  width: 100%;
+  padding: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+#supply-button{
+  width: 100%;
+  padding: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+#calender-button{
+  width: 100%;
+  padding: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+#messages-button{
+  width: 100%;
+  padding: 5px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+/* ///////////////////////////////////////////////////////////////////// */
+#cal{
+  width: 90%;
+  position: center;
+  margin-top: 50px;
+  
+}
+#calendar1{
+  width: 90%;
+  position: center;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+#Caltime1 {
+  color: white;
+  font-size: 15px;
+  margin-top: 100000px;
+  margin-left: 550px;
+  font-weight: bolder;
+}
+#calnurseSearch{
+  width: 400px;
+  position: center;
+  margin-left: 170px;
+  margin-top: 25px;
+}
+
+
+#calnurseSearch2{
+  width: 400px;
+  position: center;
+  margin-left: 170px;
+  margin-top: 0px;
+}
+
+#sched26-daytitle{
+  color: white;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 265px;
+  font-weight: light;
+  margin-bottom: 30px;
+}
+
+area {
+  display: inline;
+  border: 3px;
+}
+
+#scheduling-title{
+  color: white;
+  font-size: 35px;
+  margin-top: 0px;
+  margin-left: 260px;
+  font-weight: bolder;
+
+}
+
+#schedule26 {
+  background: white;
+  margin-top: 40px;
+  margin-left: 50px;
+  overflow-y:scroll;
+  height:450px;
+  width:750px;
+  display:block;
+  border: 3px solid black;
+  background-color:lightgray;
+}
+
+tr.spacingSched26>td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+
+.btns26 {
+  width: 250px;
+  height: 50px;
+  margin-left: 150px;
+  font-weight: 20;
+}
+
+.names26{
+  padding-left: 40px;
+  color: black;
+  font-size: 30px;
+  margin-top: 45px;
+  margin-left: 150px;
+  font-weight: 20;
+}
+
+#Ratchet26B{
+  margin-left: 220px;
+}
+
+#Jonny26B{
+  margin-left: 238px;
+}
+
+#Johnny26B{
+  margin-left: 222px;
+}
+
+#Josie26B{
+  margin-left: 262px;
+}
+
+#Juan26B{
+  margin-left: 270px;
+}
+
+#Sarah26B{
+  margin-left: 200px;
+}
+
+#back-button26p1{
+ 
+  border-radius: 15px;
+  background: lightblue;
+  padding: 10px;
+  width: 75px;
+  height: 65px;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: -200px;
+}
+
+#back-button26p2{
+  border-radius: 15px;
+  background: lightblue;
+  padding: 10px;
+  width: 75px;
+  height: 75px;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: -200px;
+}
+#back-button26p1:hover{
+  background: lightgreen;
+}
+
+#back-button26p2{
+  background: lightgreen;
+}
+
+#JosieSched26Title {
+  color: white;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-left: 235px;
+  font-weight: 25;
+  margin-bottom: 30px;
+}
+#checkbox26{
+  margin-top: -450px;
+  margin-left: 730px;
+  width: 450px;
+  padding: 3px;
+  font-size: 30px;
+  color: azure;
+}
+#checkbox-submit{
+  border-radius: 15px;
+  background: lightblue;
+  padding: 10px;
+  width: 150px;
+  height: 75px;
+  font-size: 25px;
+  margin-top: 0px;
+  margin-left: 85px;
+}
+
+#schedassigntimes{
+  color: white;
+  font-size: 35px;
+  margin-top:00px;
+  margin-left: 50px;
+  font-weight: light;
+  
+}
+
+input {
+  margin: .4rem;
+}
+
+/* .sched26-cb{
+  margin-top: -450px;
+  margin-left: px;
+  width: 450px;
+  padding: 10px;
+  font-size: 40px;
+  color: azure;
+} */
+/* #sched26-8am{
+  color: white;
+  font-size: 30px;
+  margin-top: -800px;
+  margin-left: 900px;
+  font-weight: 25;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+#sched26-8pm{
+  color: white;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-left: 900px;
+  font-weight: 25;
+  margin-bottom: 30px;
+}
+
+#sched26-n_a{
+  color: white;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-left: 0px;
+  font-weight: 25;
+  margin-bottom: 30px;
+} */
+
+/* #sched26-8am-cb{
+  color: white;
+  font-size: 30px;
+  margin-top: 300px;
+  margin-left: 300px;
+  font-weight: 25;
+  margin-bottom: 30px;
+} */
+/* ///////////////////////////////////////////////////////////////////// */
+#welcome{
+  color: white;
+  font-size: 50px;
+  margin-left: 190px;
+  
+}
+#welcomeP{
+  color: white;
+  font-size: 35px;
+  margin-top: 0px;
+  margin-left: 295px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+#title{
+  color: white;
+  font-size: 40px;
+  margin-left: 140px;
+  font-weight: bolder;
+}
+
+#time{
+  color: white;
+  font-size: 15px;
+  margin-top: -100px;
+  margin-left: 90px;
+  font-weight: bolder;
+}
+#title2{
+  color: white;
+  font-size: 25px;
+  margin-top: 20px;
+  font-weight: bolder;
+}
+#time2{
+  color: white;
+  font-size: 15px;
+  margin-top: 0px;
+  margin-left: 560px;
+  font-weight: bolder;
+}
+
+#supplies-title{
+  color: white;
+  font-size: 35px;
+  margin-top: 0px;
+  margin-left: 180px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+ 
+}
+#supplies{
+  margin-top: 40px;
+  margin-left: 50px;
+  overflow-y:scroll;
+  height:450px;
+  width:800px;
+  display:block;
+}
+
+tr.spaceUnder>td {
+  padding-bottom: 70px;
+}
+
+#supplies tr{
+  margin-top: 100px;
+  border: 45px;
+
+}
+img{
+  width:65px;
+}
+#desc{
+  color: white;
+  font-size: 15px;
+  margin-left: 25px;
+  font-weight: bolder;
+  display: inline;
+}
+#quan-desc{
+  color: white;
+  font-size: 15px;
+  margin-left: 25px;
+
+  display: inline;
+}
+#quant-inputg{
+  height: 40px;
+  width: 200px;
+  margin-left: 200px;
+  font-weight: bolder;
+  display: inline;
+}
+#quant-inputs{
+  height: 40px;
+  width: 200px;
+  margin-left: 200px;
+  font-weight: bolder;
+  display: inline;
+}
+#quant-inputm{
+  height: 40px;
+  width: 200px;
+  margin-left: 200px;
+  font-weight: bolder;
+  display: inline;
+}
+#quant-inputst{
+  height: 40px;
+  width: 200px;
+  margin-left: 200px;
+  font-weight: bolder;
+  display: inline;
+}
+#quant-inputsc{
+  height: 40px;
+  width: 200px;
+  margin-left: 200px;
+  font-weight: bolder;
+  display: inline;
+}
+#quant-inputh{
+  height: 40px;
+  width: 200px;
+  margin-left: 200px;
+  font-weight: bolder;
+  display: inline;
+}
+#quant-inputme{
+  height: 40px;
+  width: 200px;
+  margin-left: 200px;
+  font-weight: bolder;
+  display: inline;
+}
+
+#search-invent{
+  height: 40px;
+  width: 400px;
+  margin-left: 160px;
+  
+  font-weight: bolder;
+  display: inline;
+}
+#submitorder-button{
+  margin-top: 20px;
+  margin-left: 250px;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+#delete-item{
+  margin-left: 50px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  border: transparent;
+  outline: none;
+  font-size: 35px;
+  color: red;
+}
+#delete-item:hover{
+  background-color: transparent;
+  border: transparent;
+  outline: none;
+  font-size: 35px;
+  font-weight: bolder;
+  color: red;
+  
+}
+#delete-item:active{
+  background-color: transparent;
+  border: transparent;
+  outline: none;
+  font-size: 35px;
+  color: black;
+}
+#submitorder-button:enabled{
+  background-color: chartreuse;
+}
+#quant-inputg:valid {
+	border-color: black;
+}
+#quant-inputg:invalid {
+	border-color: red;
+}
+#quant-inputs:valid {
+	border-color: black;
+}
+#quant-inputs:invalid {
+	border-color: red;
+}
+#quant-inputsc:valid {
+	border-color: black;
+}
+#quant-inputsc:invalid {
+	border-color: red;
+}
+#quant-inputst:valid {
+	border-color: black;
+}
+#quant-inputst:invalid {
+	border-color: red;
+}
+#quant-inputm:valid {
+	border-color: black;
+}
+#quant-inputm:invalid {
+	border-color: red;
+}
+#quant-inputme:valid {
+	border-color: black;
+}
+#quant-inputme:invalid {
+	border-color: red;
+}
+#quant-inputh:valid {
+	border-color: black;
+}
+#quant-inputh:invalid {
+	border-color: red;
+}
+
+#patients-title{
+  color: black;
+  font-size: 35px;
+  margin-top: 0px;
+  margin-left: 180px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+ 
+}
+#patients{
+  margin-top: 60px;
+  margin-left: 60px;
+  overflow-y:scroll;
+  height:450px;
+  width:700px;
+  display:block;
+}
+
+#patientname1{
+  margin: 5px;
+  color:white;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#patientname2{
+  margin-left: 10px;
+  color:white;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#patientname3{
+  margin-left: 5px;
+  color:white;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#patientname4{
+  margin: auto;
+  color: white;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#patientname5{
+  margin-left: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#patientname6{
+  margin-left: 15px;
+  color: white;
+  font-size: 15px;
+  font-weight: bolder;
+}
+#nursename1{
+  color: black;
+  font-size: 15px;
+  height: 100px;
+  width: 100px;
+  margin-left: 0px;
+  margin-right: 90px;
+  font-weight: bolder;
+}
+#details1{
+  height: 100px;
+  width: 100px;
+  margin-left: 110px;
+  font-weight: bolder;
+}
+#patientname{
+  color: white;
+  height: 100px;
+  width: 100px;
+  font-size: 15px;
+  margin-left: 45px;
+  font-weight: bolder;
+  display: inline;
+}
+
+#nursename{
+  color: white;
+  font-size: 15px;
+  height: 100px;
+  width: 100px;
+  margin-left: 120px;
+  font-weight: bolder;
+  display: inline;
+}
+#details{
+  position: center;
+  margin-left: 210px;
+  font-weight: bolder;
+  color: white;
+  font-weight: bolder;
+  display: inline;
+}
+#patientdetails{
+  position: center;
+  margin-left: 231px;
+
+}
+#nursename2{
+  color: black;
+  font-size: 15px;
+  height: 100px;
+  width: 100px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+#details2{
+  color: black;
+  height: 100px;
+  width: 100px;
+  margin-left: 200px;
+  font-weight: bolder;
+}
+#nursename3{
+  color: black;
+  font-size: 15px;
+  height: 100px;
+  width: 100px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+#details3{
+  color: black;
+  height: 100px;
+  width: 100px;
+  margin-left: 200px;
+  font-weight: bolder;
+}
+
+#nursename4{
+  color: black;
+  font-size: 15px;
+  height: 100px;
+  width: 100px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+#details4{
+  color: black;
+  height: 100px;
+  width: 100px;
+  margin-left: 200px;
+  font-weight: bolder;
+}
+
+#nursename5{
+  color: black;
+  font-size: 15px;
+  height: 100px;
+  width: 100px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+#details5{
+  color: black;
+  height: 100px;
+  width: 100px;
+  margin-left: 200px;
+  font-weight: bolder;
+}
+
+#nursename6{
+  color: black;
+  font-size: 15px;
+  height: 100px;
+  width: 100px;
+  margin-left: 86px;
+  font-weight: bolder;
+}
+#details6{
+  height: 100px;
+  width: 100px;
+  margin-left: 200px;
+  font-weight: bolder;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow:hidden;
+  align-items: center;
+  justify-content:center;
+}
+
+#assignNurse{
+  color: white;
+  font-size: 35px;
+  margin-top: 0px;
+  margin-left: 260px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+#nursename10{
+  color: white;
+  font-size: 25px;
+  height: 100px;
+  width: 350px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+
+#nurseCheckBox1{
+  height: 25px;
+  width: 25px;
+  margin-left: 50px;
+}
+
+#nursename11{
+  color: white;
+  font-size: 25px;
+  height: 100px;
+  width: 350px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+
+#nurseCheckBox2{
+  height: 25px;
+  width: 25px;
+  margin-left: 50px;
+}
+
+#nursename12{
+  color: white;
+  font-size: 25px;
+  height: 100px;
+  width: 350px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+
+#nurseCheckBox3{
+  height: 25px;
+  width: 25px;
+  margin-left: 50px;
+}
+
+#nursename13{
+  color: white;
+  font-size: 25px;
+  height: 100px;
+  width: 350px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+
+#nurseCheckBox4{
+  height: 25px;
+  width: 25px;
+  margin-left: 50px;
+}
+
+#nursename14{
+  color: white;
+  font-size: 25px;
+  height: 100px;
+  width: 350px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+
+#nurseCheckBox5{
+  height: 25px;
+  width: 25px;
+  margin-left: 50px;
+}
+
+#nursename15{
+  color: white;
+  font-size: 25px;
+  height: 100px;
+  width: 350px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+
+#nurseCheckBox6{
+  height: 25px;
+  width: 25px;
+  margin-left: 50px;
+}
+
+#assignNurseButton{
+  height: 100px;
+  width: 300px;
+}
+
+#male{
+width: 90px;
+}
+
+#female{
+width: 90px;
+}
+
+#confirmationNurse{
+  color: white;
+  font-size: 30px;
+  height: 100px;
+  width: 400px;
+  margin-left: 100px;
+  font-weight: bolder;
+}
+
+#yesButton{
+  height: 100px;
+  width: 300px;
+}
+
+#noButton{
+  height: 100px;
+  width: 300px;
+}
+
+#confirmationNurse2{
+  color: white;
+  font-size: 40px;
+  height: 200px;
+  width: 500px;
+  margin-left: 100px;
+  font-weight: bolder;
+  text-align:center
+}
+
+#nurses{
+  margin-top: 40px;
+  margin-left: 50px;
+  overflow-y:scroll;
+  height:450px;
+  width:800px;
+  display:block;
+}
