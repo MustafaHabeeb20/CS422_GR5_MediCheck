@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>MediCheck</title>
+
+<!-- Load style sheets -->
+<link rel="stylesheet" href=
+  "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css">
+  <script src=
+  "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="mainLayout.css">
+<script>
+
+$(document).ready(function()
+{
+  //$('#submitorder-button').prop('disabled', true);
+  document.getElementById("home-button").style.backgroundColor = "rgb(3, 163, 136)"; 
+});
+
+
+function home(){
+  console.log("in here");
+  document.getElementById("mainColumn").innerHTML="";
+  document.getElementById("home-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("home-button").style.marginTop = "100px";
+  document.getElementById("title2").style = "display:none;";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  document.getElementById("mainColumn").innerHTML='<div>'+
+        '<text id = title> <img src = "medicheck.jpeg"> MEDICHECK</text>'+
+        '<text id = time> 10/24 11:05pm</text>'+
+        '</div>'+
+        '<text id ="welcome">Welcome Alex</text>'+
+        '<img id = "cal" src = "calender-month.jpeg">';
+}
+
+
+function patient(){
+  console.log("in here");
+  document.getElementById("mainColumn").innerHTML="";
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+document.getElementById("mainColumn").innerHTML='<div class="row">'+
+        '<text id = time2> 10/24 11:05pm</text>'+
+        '<text id = "welcomeP">Patients</text>'+
+      '</div>'+
+      '<input style = "font-size: 15px;"type="text" id="search-invent" placeholder = "Search Patient by Name" oninput="checkPatientInput()" optional>'+
+      '<table id = "patients">'+
+      '<tr id = patientHeader>'+
+         '<td>'+
+            '<div class ="row">'+
+            '<div class ="row">'+
+              '</div>'+
+              '<div id = patientname >Patient Name<br></div>'+
+              '<div id = nursename >Nurse Name</div>'+
+            
+              '<div id = details ><text id = patientDetails>Patient <br>Details</text></div>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr id = patient1>'+
+          '<td>'+
+            '<div class ="row">'+
+            '<div class ="col">'+
+              '<img src = "male.png" id = male>'+
+              '<div id = patientname1>Juan Smith<br></div>'+
+              '</div>'+
+              '<button id = nursename1>Johnny Delano</button>'+
+              '<button id = details1>Details</button>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr id = patient2>'+
+          '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '<img src = "female.png" id = female>'+
+              '<div id = patientname2>Jessie Martinez<br></div>'+
+              '</div>'+
+              '<button id = nursename2 onclick = "addNurse()">!</button>'+
+              '<button id = details2>Details</button>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr id = patient3>'+
+          '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '<img src = "male.png" id = male>'+
+              '<div id = patientname3>John Smith<br></div>'+
+              '</div>'+
+              '<button id = nursename3>Rachel Mendez</button>'+
+              '<button id = details3>Details</button>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr id = patient4>'+
+          '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '<img src = "female.png" id = female>'+
+              '<div id = patientname4>Janet Picket<br></div>'+
+              '</div>'+
+              '<button id = nursename4>Johnny Bravo</button>'+
+              '<button id = details4>Details</button>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr id = patient5>'+
+          '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '<img src = "male.png" id = male>'+
+              '<div id = patientname5>David Galloway<br></div>'+
+              '</div>'+
+              '<button id = nursename5>Ratchet Markin</button>'+
+              '<button id = details5>Details</button>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr id = patient6>'+
+          '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '<img src = "male.png" id = male>'+
+              '<div id = patientname6>Daniel Hernandez<br></div>'+
+              '</div>'+
+              '<button id = nursename6>Sarah Karzowski</button>'+
+              '<button id = details6>Details</button>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+      '</table>'+
+    '</div>';
+}
+
+function supply(){
+  console.log("in here");
+  document.getElementById("mainColumn").innerHTML= '<div class="row">'+
+        '<text id = time2> 10/24 11:05pm</text>'+
+        '<text id = "supplies-title">Supplies and Inventory</text>'+
+      '</div>'+
+      '<input style = "font-size: 15px;"type="text" id="search-invent" placeholder = "Search Supply by Name" oninput="checkInput()" optional>'+
+      '<table id = "supplies">'+
+        '<tr class = "spaceUnder" id = gloves>' +
+          '<td>' +
+            '<div class ="row">' +
+              '<img src = "gloves.jpeg">' +
+              '<div class ="column">' +
+                '<div id = desc>100 Latex gloves <br></div>' +
+                '<div id = quan-desc>Quantity on Hand: 223</div>' +
+              '</div>' +
+              '<input style = "font-size: 15px;" type="number" min = "1" pattern="[0-9]" id="quant-inputg" placeholder = "Enter amount to Order" oninput="checkInputf(\'gloves\')" optional>' +
+              '<button id = delete-item onclick= "remove(\'gloves\')">&#10006;</button>' +
+            '</div>' +
+          '</td>' +
+        '</tr>' +
+        '<tr class = "spaceUnder" id = syringes>' +
+          '<td>' +
+            '<div class ="row">' +
+              '<img src = "syringe.jpeg">' +
+              '<div class ="column">' +
+                '<div id = desc>10 Syringes <br></div>' +
+                '<div id = quan-desc>Quantity on Hand: 242    </div>' +
+              '</div>' +
+              '<input style = "font-size: 15px;" type="number" min = "1" pattern="[0-9]" id="quant-inputs" placeholder = "Enter amount to Order" oninput="checkInputf(\'syringes\')" optional>' +
+              
+              '<button id = delete-item onclick= "remove(\'syringes\')">&#10006;</button>' +
+            '</div>' +
+          '</td>' +
+        '</tr>' +
+        '<tr class = "spaceUnder" id = masks>' +
+          '<td>' +
+            '<div class ="row">' +
+              '<img src = "mask.jpeg">' +
+              '<div class ="column">' +
+                '<div id = desc>25 Masks <br></div>' +
+                '<div id = quan-desc>Quantity on Hand: 259</div>' +
+              '</div>' +
+              '<input style = "font-size: 15px;" type="number" min = "1" pattern="[0-9]" id="quant-inputm" placeholder = "Enter amount to Order" oninput="checkInputf(\'masks\')" optional>' +
+              '<button id = delete-item onclick= "remove(\'masks\')">&#10006;</button>' +
+            '</div>' +
+          '</td>' +
+        '</tr>' +
+        '<tr class = "spaceUnder" id = hammers>' + 
+          '<td>' +
+            '<div class ="row">' +
+              '<img src = "hammer.jpeg">' +
+              '<div class ="column">' +
+                '<div id = desc>Percussion Hammer <br></div>' +
+                '<div id = quan-desc>Quantity on Hand: 106</div>' +
+              '</div>' +
+              '<input style = "font-size: 15px;" type="number" min = "1" pattern="[0-9]" id="quant-inputh" placeholder = "Enter amount to Order" oninput="checkInputf(\'hammers\')" optional>' +
+              '<button id = delete-item onclick= "remove(\'hammers\')">&#10006;</button>' +
+            '</div>' +
+          '</td>' +
+        '</tr>' +
+        '<tr class = "spaceUnder" id = scissors>' +
+          '<td>' +
+            '<div class ="row">' +
+              '<img src = "scissors.jpeg">' +
+              '<div class ="column">' +
+                '<div id = desc>Pair of surgical scissors <br></div>' +
+                '<div id = quan-desc>Quantity on Hand: 312</div>' +
+              '</div>' +
+              '<input style = "font-size: 15px;" type="number" min = "1" pattern="[0-9]" id="quant-inputsc" placeholder = "Enter amount to Order" oninput="checkInputf(\'scissors\')" optional>' +
+              '<button id = delete-item onclick= "remove(\'scissors\')">&#10006;</button>' +
+            '</div>' +
+          '</td>' +
+        '</tr>' +
+        '<tr class = "spaceUnder" id = stethoscopes>' +
+          '<td>' +
+            '<div class ="row">' +
+              '<img src = "stethoscope.png">' +
+              '<div class ="column">' +
+                '<div id = desc>Stethoscope <br></div>' +
+                '<div id = quan-desc>Quantity on Hand: 286</div>' +
+              '</div>' +
+              '<input style = "font-size: 15px;" type="number" min = "1" pattern="[0-9]" id="quant-inputst" placeholder = "Enter amount to Order" oninput="checkInputf(\'stethoscopes\')" optional>' +
+              '<button id = delete-item onclick= "remove(\'stethoscopes\')">&#10006;</button>' +
+            '</div>' +
+          '</td>' +
+        '</tr>' +
+        '<tr class = "spaceUnder" id = medication>' +
+          '<td>' +
+            '<div class ="row">' +
+              '<img src = "medication.jpg">' +
+              '<div class ="column">' +
+                '<div id = desc>Medication <br></div>' +
+                '<div id = quan-desc>Quantity on Hand: 314 </div>' +
+              '</div>' +
+              '<input style = "font-size: 15px;" type="number" min = "1" pattern="[0-9]" id="quant-inputme" placeholder = "Enter amount to Order" oninput="checkInputf(\'medication\')" optional>' +
+              '<button id = delete-item onclick= "remove(\'medication\')">&#10006;</button>' +
+            '</div>' +
+          '</td>' +
+        '</tr>' +
+      '</table>' +
+      '<button id = "submitorder-button" onclick="submitOrder()" disabled=\'true\' > Submit Order </button>' +
+    '</div>';
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("calender-button").style.backgroundColor = "";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+function calender(){
+  console.log("in here");
+  
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+  document.getElementById("mainColumn").innerHTML = '<div clas="row">' +
+    '<text id = "Caltime1"> 10/24 11:05pm</text>' +
+    '</div>'+
+    '<div>' +
+    '<text id = "scheduling-title">Scheduling</text>' +
+    '</div>' +
+    // '<input type="text" class="form-control" id="calnurseSearch" placeholder="Search Nurse by Name">' +
+    '<img id = "calendar1" src="calender-month.jpeg" usemap="#calMap">' +
+    '<map name="calMap">' +           
+      '<area id="shapesCalander1"  class="shapesCal" shape="rect" coords="400,338,480,700" alt="num26" onclick="calendar26() ">' +
+      '<area id="shapesCalander2" class="shapesCal" shape="rect" coords="560,338,700,700" alt="num28" onclick="calendar28()">' + 
+    '</map>';
+}
+
+function calendar26(){
+  console.log("in here cal 26");
+
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  
+
+
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+  document.getElementById("mainColumn").innerHTML = '<div clas="row">' +
+    '<text id = "Caltime1"> 10/24 11:05pm</text>' +
+    '</div>' +
+    '<div>' +
+    '<text id = "scheduling-title">Scheduling</text>' +
+    '</div>' +
+    '<div>' +
+    '<label id = "sched26-daytitle">Scheduling for 10/26</label>' +
+    '</div>' +
+    '<input type="text" class="form-control" id="calnurseSearch2" placeholder="Search Nurse by Name">' +
+    '<div>' +
+      '<table id="schedule26">' +
+        '<tr class="spacingSched26" id="Ratchet26">' +
+          '<td class="names26">Ratchet Markin' + '<button type="button" class="btns26" id="Ratchet26B">8:00AM - 8:00PM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="JohnnyB26">' +
+          '<td class="names26">Johnny Bravo' + '<button type="button" class="btns26" id="Jonny26B">8:00AM - 8:00PM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="JohnnyD26">' +
+          '<td class="names26">Johnny Delano' + '<button type="button" class="btns26" id="Johnny26B">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Josie26">' +
+          '<td class="names26">Josie Jones' + '<button type="button" class="btns26" id="Josie26B" onclick="jones26()">N/A</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Juan26">' +
+          '<td class="names26">Juan Smith' + '<button type="button" class="btns26" id="Juan26B">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Sarah26">' +
+          '<td class="names26">Sarah Karzowski' + '<button type="button" class="btns26" id="Sarah26B">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+      '</table>' +
+    '</div>' +
+    '<div>' +
+    '<button id="back-button26p1" onclick="calender()"> < </button>' +
+    '</div>';
+  
+
+//     <table>
+//   <tr>
+//     <th>Month</th>
+//     <th>Savings</th>
+//   </tr>
+//   <tr>
+//     <td>January</td>
+//     <td>$100</td>
+//   </tr>
+// </table>
+}
+
+function jones26(){
+  console.log("in here cal 28");
+  
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+  document.getElementById("mainColumn").innerHTML = '<div clas="row">' +
+    '<text id = "Caltime1"> 10/24 11:05pm</text>' +
+    '</div>' +
+    '<div>' +
+    '<text id = "scheduling-title">Scheduling</text>' +
+    '</div>' +
+    '<div>' +
+    '<label id="JosieSched26Title">Josie Jones Availability</label>' +
+    '</div>' + 
+    '<img id = "calendar1" src="calender-month26.jpeg">' +
+    
+    
+    '<form id=checkbox26>' +
+      '<div>'+
+        '<label id = "schedassigntimes">Select Time:</label>' + 
+      '</div>' +
+      '<input type="checkbox" id="sched26-8am-cb" name="8am">' +
+      '<label class="sched26-cb" for="8am"> 8:00AM - 8:00PM</label><br>' +
+      
+      '<input type="checkbox" id="sched26-8pm-cb" name="8pm">' +
+      '<label class="sched26-cb" for="8pm"> 8:00PM - 8:00AM</label><br>' +
+      
+      '<input type="checkbox" id="sched26-n_a-cb" name="NA" >' +
+      '<label class="sched26-cb" for="NA"> N/A</label><br><br>' + 
+      
+      
+      '<input id="checkbox-submit" type="submit" value="Submit" onclick="calendar262()">' +
+    '</form>'+
+
+    '<div>' +
+    '<button id="back-button26p2" onclick="calendar26()"> < </button>' +
+    '</div>';
+
+}
+
+function calendar262() {
+  console.log("in here cal 26");
+
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  
+
+
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+  document.getElementById("mainColumn").innerHTML = '<div clas="row">' +
+    '<text id = "Caltime1"> 10/24 11:05pm</text>' +
+    '</div>' +
+    '<div>' +
+    '<text id = "scheduling-title">Scheduling</text>' +
+    '</div>' +
+    '<div>' +
+    '<label id = "sched26-daytitle">Scheduling for 10/26</label>' +
+    '</div>' +
+    '<input type="text" class="form-control" id="calnurseSearch2" placeholder="Search Nurse by Name">' +
+    '<div>' +
+      '<table id="schedule26">' +
+        '<tr class="spacingSched26" id="Ratchet26">' +
+          '<td class="names26">Ratchet Markin' + '<button type="button" class="btns26" id="Ratchet26B">8:00AM - 8:00PM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="JohnnyB26">' +
+          '<td class="names26">Johnny Bravo' + '<button type="button" class="btns26" id="Jonny26B">8:00AM - 8:00PM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="JohnnyD26">' +
+          '<td class="names26">Johnny Delano' + '<button type="button" class="btns26" id="Johnny26B">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Josie26">' +
+          '<td class="names26">Josie Jones' + '<button type="button" class="btns26" id="Josie26B">8:00AM - 8:00PM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Juan26">' +
+          '<td class="names26">Juan Smith' + '<button type="button" class="btns26" id="Juan26B">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Sarah26">' +
+          '<td class="names26">Sarah Karzowski' + '<button type="button" class="btns26" id="Sarah26B">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+      '</table>' +
+    '</div>' +
+    '<div>' +
+    '<button id="back-button26p1" onclick="calender()"> < </button>' +
+    '</div>';
+}
+
+
+function calendar28(){
+  console.log("in here cal 26");
+
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+  document.getElementById("mainColumn").innerHTML = '<div clas="row">' +
+    '<text id = "Caltime1"> 10/24 11:05pm</text>' +
+    '</div>' +
+    '<div>' +
+    '<text id = "scheduling-title">Scheduling</text>' +
+    '</div>' +
+    '<div>' +
+    '<label id = "sched26-daytitle">Scheduling for 10/28</label>' +
+    '</div>' +
+    '<input type="text" class="form-control" id="calnurseSearch2" placeholder="Search Nurse by Name">' +
+    '<div>' +
+      '<table id="schedule26">' +
+        '<tr class="spacingSched26" id="Ratchet26">' +
+          '<td class="names26">Ratchet Markin' + '<button type="button" class="btns26" id="Ratchet26B">8:00AM - 8:00PM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="JohnnyB26">' +
+          '<td class="names26">Johnny Bravo' + '<button type="button" class="btns26" id="Jonny26B">8:00AM - 8:00PM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="JohnnyD26">' +
+          '<td class="names26">Johnny Delano' + '<button type="button" class="btns26" id="Johnny26B">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Josie26">' +
+          '<td class="names26">Josie Jones' + '<button type="button" class="btns26" id="Josie26B">N/A</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Juan26">' +
+          '<td class="names26">Juan Smith' + '<button type="button" class="btns26" id="Juan26B" onclick="smith28()">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+        '<tr class="spacingSched26" id="Sarah26">' +
+          '<td class="names26">Sarah Karzowski' + '<button type="button" class="btns26" id="Sarah26B">8:00PM - 8:00AM</buton></td>' +
+        '</tr>' +
+      '</table>' +
+    '</div>' +
+    '<div>' +
+    '<button id="back-button26p1" onclick="calender()"> < </button>' +
+    '</div>';
+}
+
+function smith28() {
+  console.log("in here cal 28");
+  
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+  document.getElementById("mainColumn").innerHTML = '<div clas="row">' +
+    '<text id = "Caltime1"> 10/24 11:05pm</text>' +
+    '</div>' +
+    '<div>' +
+    '<text id = "scheduling-title">Scheduling</text>' +
+    '</div>' +
+    '<div>' +
+    '<label id="JosieSched26Title">Juan Smith Availability</label>' +
+    '</div>' + 
+    '<img id = "calendar1" src="calender-month28.jpeg">' +
+    
+    
+    '<form id=checkbox26>' +
+      '<div>'+
+        '<label id = "schedassigntimes">Select Time:</label>' + 
+      '</div>' +
+      '<input type="checkbox" id="sched26-8am-cb" name="8am">' +
+      '<label class="sched26-cb" for="8am"> 8:00AM - 8:00PM</label><br>' +
+      
+      '<input type="checkbox" id="sched26-8pm-cb" name="8pm">' +
+      '<label class="sched26-cb" for="8pm"> 8:00PM - 8:00AM</label><br>' +
+      
+      '<input type="checkbox" id="sched26-n_a-cb" name="NA" >' +
+      '<label class="sched26-cb" for="NA"> N/A</label><br><br>' + 
+      
+      
+      '<input id="checkbox-submit" type="submit" value="Submit" onclick="calendar282()">' +
+    '</form>' +
+
+    '<div>' +
+    '<button id="back-button26p2" onclick="calendar28()"> < </button>' +
+    '</div>';
+
+    
+}
+
+function calendar282() {
+  console.log("in here cal 26");
+
+document.getElementById("home-button").style.backgroundColor = "";
+document.getElementById("patient-button").style.backgroundColor = "";
+document.getElementById("supply-button").style.backgroundColor = "";
+document.getElementById("calender-button").style.backgroundColor = "rgb(3, 163, 136)";
+document.getElementById("messages-button").style.backgroundColor = "";
+document.getElementById("title2").style = "display:show;";
+document.getElementById("home-button").style.marginTop = "25px";
+document.getElementById("mainColumn").innerHTML = '<div clas="row">' +
+    '<text id = "Caltime1"> 10/24 11:05pm</text>' +
+    '</div>' +
+    '<div>' +
+    '<text id = "scheduling-title">Scheduling</text>' +
+    '</div>' +
+  '<div>' +
+  '<label id = "sched26-daytitle">Scheduling for 10/28</label>' +
+  '</div>' +
+  '<input type="text" class="form-control" id="calnurseSearch2" placeholder="Search Nurse by Name">' +
+  '<div>' +
+    '<table id="schedule26">' +
+      '<tr class="spacingSched26" id="Ratchet26">' +
+        '<td class="names26">Ratchet Markin' + '<button type="button" class="btns26" id="Ratchet26B">8:00AM - 8:00PM</buton></td>' +
+      '</tr>' +
+      '<tr class="spacingSched26" id="JohnnyB26">' +
+        '<td class="names26">Johnny Bravo' + '<button type="button" class="btns26" id="Jonny26B">8:00AM - 8:00PM</buton></td>' +
+      '</tr>' +
+      '<tr class="spacingSched26" id="JohnnyD26">' +
+        '<td class="names26">Johnny Delano' + '<button type="button" class="btns26" id="Johnny26B">8:00PM - 8:00AM</buton></td>' +
+      '</tr>' +
+      '<tr class="spacingSched26" id="Josie26">' +
+        '<td class="names26">Josie Jones' + '<button type="button" class="btns26" id="Josie26B">N/A</buton></td>' +
+      '</tr>' +
+      '<tr class="spacingSched26" id="Juan26">' +
+        '<td class="names26">Juan Smith' + '<button type="button" class="btns26" id="Juan26B"">8:00AM - 8:00PM</buton></td>' +
+      '</tr>' +
+      '<tr class="spacingSched26" id="Sarah26">' +
+        '<td class="names26">Sarah Karzowski' + '<button type="button" class="btns26" id="Sarah26B">8:00PM - 8:00AM</buton></td>' +
+      '</tr>' +
+    '</table>' +
+  '</div>' +
+  '<div>' +
+  '<button id="back-button26p1" onclick="calender()"> < </button>' +
+  '</div>';
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+function messages(){
+  console.log("in here");
+  
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "";
+  document.getElementById("messages-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+}
+function remove(item){
+  console.log("removing item "+ item);
+  
+  var r = confirm("Are you sure you want to delete " + item + "?");
+  if (r == true) {
+    document.getElementById(item).innerHTML = "";
+    stethoscopeOrder ="";
+  } else { 
+  }
+
+}
+
+function checkInput(){
+  var item = document.getElementById("search-invent").value.toUpperCase();
+  var table = document.getElementById("supplies");
+  var trs = table.getElementsByTagName("tr");
+  console.log(item);
+  if(item == "GLOVE"||item == "GLOVES"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "gloves"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "SYRINGE"||item == "SYRINGES"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "syringes"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "MASK"||item == "MASKS"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "masks"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "HAMMER"||item == "HAMMERS"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "hammers"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "SCISSORS"||item == "SCISSORSS"){//lmao
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "scissors"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "STETHOSCOPES"||item == "STETHOSCOPE"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "stethoscopes"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "MEDICATION"||item == "MEDICATIONS"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "medication"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else{
+    for (i = 0; i < trs.length; i++) {
+      var td = trs[i].style.display="";
+    }
+    //document.getElementById("supplies").innerHTML=document.getElementById("supplies").innerHTML;
+  }
+}
+
+
+var gloveOrder ="";
+var syringeOrder ="";
+var maskOrder ="";
+var hammerOrder ="";
+var gloveOrder ="";
+var scissorsOrder ="";
+var stethoscopeOrder ="";
+var medicineOrder ="";
+
+function checkInputf(item){
+  console.log("checking" +item+"!");
+  if(item == "gloves"){
+    console.log("checking gloves");
+    if(document.getElementById("quant-inputg").checkValidity()){
+      console.log("VALID");
+      //$('#submitorder-button').prop('disabled', false);
+      document.getElementById('submitorder-button').removeAttribute('disabled');
+      gloveOrder = "Ordering "+ document.getElementById("quant-inputg").value + " orders of gloves";
+    }
+    else{
+      //$('#submitorder-button').prop('disabled', true);
+      //document.getElementById("submitorder-button").disabled=true;
+      console.log("made glove empty");
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      gloveOrder = "";
+      return;
+    }
+    if(document.getElementById("quant-inputg").value==""){
+      console.log("made glove empty");
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      gloveOrder = "";
+    }
+  }
+  else if(item == "syringes"){
+    console.log("checking syringess");
+    if(document.getElementById("quant-inputs").checkValidity()){
+      console.log("VALID");
+      //$('#submitorder-button').prop('disabled', false);
+      document.getElementById('submitorder-button').removeAttribute('disabled');
+      syringeOrder = "Ordering "+ document.getElementById("quant-inputs").value + " orders of syringes";
+    }
+    else{
+      //$('#submitorder-button').prop('disabled', true);
+      //document.getElementById("submitorder-button").disabled=true;
+      console.log("made syringe empty");
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      syringeOrder = "";
+      return;
+    }
+    if(document.getElementById("quant-inputs").value==""){
+      console.log("made syringe empty");
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      syringeOrder = "";
+    }
+  }
+  else if(item == "masks"){
+    
+    if(document.getElementById("quant-inputm").checkValidity()){
+      console.log("VALID");
+      //$('#submitorder-button').prop('disabled', false);
+      document.getElementById('submitorder-button').removeAttribute('disabled');
+      maskOrder = "Ordering "+ document.getElementById("quant-inputm").value + " orders of masks";
+    }
+    else{
+      //$('#submitorder-button').prop('disabled', true);
+      //document.getElementById("submitorder-button").disabled=true;
+     
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      maskOrder = "";
+      return;
+    }
+    if(document.getElementById("quant-inputm").value==""){
+
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      maskOrder = "";
+    }
+  }
+  else if(item == "hammers"){
+    
+    if(document.getElementById("quant-inputh").checkValidity()){
+      console.log("VALID");
+      //$('#submitorder-button').prop('disabled', false);
+      document.getElementById('submitorder-button').removeAttribute('disabled');
+      hammerOrder = "Ordering "+ document.getElementById("quant-inputh").value + " orders of hammers";
+    }
+    else{
+      //$('#submitorder-button').prop('disabled', true);
+      //document.getElementById("submitorder-button").disabled=true;
+     
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      hammerOrder = "";
+      return;
+    }
+    if(document.getElementById("quant-inputh").value==""){
+
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      hammerOrder = "";
+    }
+  }
+  else if(item == "scissors"){
+    
+    if(document.getElementById("quant-inputsc").checkValidity()){
+      console.log("VALID");
+      //$('#submitorder-button').prop('disabled', false);
+      document.getElementById('submitorder-button').removeAttribute('disabled');
+      scissorsOrder = "Ordering "+ document.getElementById("quant-inputsc").value + " orders of scissors";
+    }
+    else{
+      //$('#submitorder-button').prop('disabled', true);
+      //document.getElementById("submitorder-button").disabled=true;
+     
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      scissorsOrder = "";
+      return;
+    }
+    if(document.getElementById("quant-inputsc").value==""){
+
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      scissorsOrder = "";
+    }
+  }
+  else if(item == "stethoscopes"){
+    
+    if(document.getElementById("quant-inputst").checkValidity()){
+      console.log("VALID");
+      //$('#submitorder-button').prop('disabled', false);
+      document.getElementById('submitorder-button').removeAttribute('disabled');
+      stethoscopeOrder = "Ordering "+ document.getElementById("quant-inputst").value + " orders of stethoscopes";
+    }
+    else{
+      //$('#submitorder-button').prop('disabled', true);
+      //document.getElementById("submitorder-button").disabled=true;
+     
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      stethoscopeOrder = "";
+      return;
+    }
+    if(document.getElementById("quant-inputst").value==""){
+
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      stethoscopeOrder = "";
+    }
+  }
+  else if(item == "medication"){
+    
+    if(document.getElementById("quant-inputme").checkValidity()){
+      console.log("VALID");
+      //$('#submitorder-button').prop('disabled', false);
+      document.getElementById('submitorder-button').removeAttribute('disabled');
+      console.log("ORDEEREFCME");
+      medicineOrder = "Ordering "+ document.getElementById("quant-inputme").value + " units of medication";
+    }
+    else{
+      //$('#submitorder-button').prop('disabled', true);
+      //document.getElementById("submitorder-button").disabled=true;
+     
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      medicationOrder = "";
+      return;
+    }
+    if(document.getElementById("quant-inputme").value==""){
+
+      document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+      medicationOrder = "";
+    }
+  }
+  if(gloveOrder == "" && syringeOrder =="" && maskOrder == "" && hammerOrder == "" && gloveOrder == "" && scissorsOrder == "" && stethoscopeOrder == "" && medicineOrder==""){
+    document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+  }
+  else{
+    document.getElementById('submitorder-button').removeAttribute('disabled');
+  }
+  console.log(document.getElementById("quant-inputs").checkValidity() && document.getElementById("quant-inputg").checkValidity());
+  if(!(document.getElementById("quant-inputs").checkValidity() && document.getElementById("quant-inputg").checkValidity() && document.getElementById("quant-inputm").checkValidity() && document.getElementById("quant-inputme").checkValidity() && document.getElementById("quant-inputh").checkValidity() && document.getElementById("quant-inputsc").checkValidity() && document.getElementById("quant-inputst").checkValidity())){
+    document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+    console.log("NOT VALID ALL");
+  }
+
+  
+}
+
+function submitOrder(){
+
+  var wholeOrder = "\n";
+  if(gloveOrder!=""){
+    wholeOrder+=gloveOrder+"\n";
+  }
+  if(syringeOrder!=""){
+    wholeOrder+=syringeOrder+"\n";
+  }
+  if(maskOrder!=""){
+    wholeOrder+=maskOrder+"\n";
+  }
+  if(hammerOrder!=""){
+    wholeOrder+=hammerOrder+"\n";
+  }
+  if(scissorsOrder!=""){
+    wholeOrder+=scissorsOrder+"\n";
+  }
+  if(stethoscopeOrder!=""){
+    wholeOrder+=stethoscopeOrder+"\n";
+  }
+  if(medicineOrder!=""){
+    wholeOrder+=medicineOrder+"\n";
+  }
+  var r = confirm("Are you sure you want to submit this order?\n"+ wholeOrder);
+
+  console.log(wholeOrder);
+  if (r == true) {
+    document.getElementById("quant-inputg").value = "";
+    document.getElementById("quant-inputs").value = "";
+    document.getElementById("quant-inputm").value = "";
+    document.getElementById("quant-inputh").value = "";
+    document.getElementById("quant-inputsc").value = "";
+    document.getElementById("quant-inputst").value = "";
+    document.getElementById("quant-inputme").value = "";
+    document.getElementById('submitorder-button').setAttribute('disabled', 'disabled');
+    gloveOrder ="";
+    syringeOrder ="";
+    maskOrder ="";
+    hammerOrder ="";
+    scissorsOrder ="";
+    stethoscopeOrder ="";
+    medicineOrder ="";
+  } else { 
+  }
+  
+}
+
+function checkPatientInput(){
+  var item = document.getElementById("search-invent").value.toUpperCase();
+  var table = document.getElementById("patients");
+  var trs = table.getElementsByTagName("tr");
+  console.log(item);
+  if(item == "JUAN"||item == "JUAN SMITH"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "patient1"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "JESSIE"||item == "JESSIE MARTINEZ"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "patient2"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "JOHN"||item == "JOHN SMITH"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "patient3"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "JANET"||item == "JANET PICKET"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "patient4"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "DAVID"||item == "DAVID GALLOWAY"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "patient5"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else if(item == "DANIEL"||item == "DANIEL HERNANDEZ"){
+    for (i = 0; i < trs.length; i++) {
+      console.log("HERE"+trs[i].id);
+      var td = trs[i].style.display="none";
+      if(trs[i].id == "patient6"){
+        console.log("HEREwee"+trs[i].id);
+        var td = trs[i].style.display="";
+      }
+    } 
+  }
+  else{
+    for (i = 0; i < trs.length; i++) {
+      var td = trs[i].style.display="";
+    }
+    //document.getElementById("supplies").innerHTML=document.getElementById("supplies").innerHTML;
+  }
+}
+
+function addNurse(){
+  document.getElementById("mainColumn").innerHTML="";
+  document.getElementById("home-button").style.backgroundColor = "";
+  document.getElementById("patient-button").style.backgroundColor = "rgb(3, 163, 136)";
+  document.getElementById("supply-button").style.backgroundColor = "";
+  document.getElementById("calender-button").style.backgroundColor = "";
+  document.getElementById("messages-button").style.backgroundColor = "";
+  document.getElementById("title2").style = "display:show;";
+  document.getElementById("home-button").style.marginTop = "25px";
+  document.getElementById("mainColumn").innerHTML='<div class="row">'+
+        '<text id = time2> 10/24 11:05pm</text>'+
+        '<text id = "assignNurse">Assign Nurse</text>'+
+      '</div>'+
+        '</div>'+
+        '<input style = "font-size: 15px;"type="text" id="search-invent" placeholder = "Search Nurse by Name" oninput="checkPatientInput()" optional>'+
+        '<table id = "nurses">'+
+        '<tr class = "spaceUnder">'+
+        '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '</div>'+
+              '<div id = "nursename10">Ratchet Markin</div>'+
+              '<input type="checkbox" id = nurseCheckBox1>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr class = "spaceUnder">'+
+        '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '</div>'+
+              '<div id = "nursename11">Johnny Bravo</div>'+
+              '<input type="checkbox" id = nurseCheckBox2>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr class = "spaceUnder">'+
+        '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '</div>'+
+              '<div id = "nursename12">Johnny Delano</div>'+
+              '<input type="checkbox" id = nurseCheckBox3>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr class = "spaceUnder">'+
+        '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '</div>'+
+              '<div id = "nursename13">Josie Jones</div>'+
+              '<input type="checkbox" id = nurseCheckBox4>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr class = "spaceUnder">'+
+        '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '</div>'+
+              '<div id = "nursename14">Juan Smith</div>'+
+              '<input type="checkbox" id = nurseCheckBox5>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+    '<tr class = "spaceUnder">'+
+        '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '</div>'+
+              '<div id = "nursename15">Sarah Karzowski</div>'+
+              '<input type="checkbox" id = nurseCheckBox6>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'+
+        '<tr class = "spaceUnder">'+
+        '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '</div>'+
+              '<button id = "assignNurseButton" onclick = "assignNurse()">Assign Nurse</button>'+
+            '</div>'+
+          '</td>'+
+        '</tr>'
+        ;
+}
+
+function assignNurse(){
+  
+  var r = confirm("Are you sure you want to assign Josie Jones to Jessie Martinez?");
+  if (r == true) {
+  document.getElementById("mainColumn").innerHTML='<div>'+
+        '<text id = time2 align = right> 10/24 11:05pm</text>'+
+        '</div>'+
+        '<text id ="assignNurse">Status Page</text>'+
+        '</div>'+
+        '<table id = "nurses2">'+
+        '<tr class = "spaceUnder">'+
+        '<td>'+
+            '<div class ="row">'+
+            '<div class ="column">'+
+              '</div>'+
+              '<div id = "confirmationNurse2">Josie Jones has been assigned to Jessie Martinez</div>'+
+            '</div>'+
+          '</td>'+
+        '</tr>';
+  } else { 
+  }
+
+}
+
+</script>
+
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" id="firstColumn">
+      <text style="display:none;" id = title2> <img src = "medicheck.jpeg"> MEDICHECK</text>
+      <button id= "home-button" onclick="home()"><div class = col><img src = "home-1.jpeg"> <div>Home</div></div></button>
+      <button id= "patient-button" onclick="patient()"><div class = col></div><img src = "patient.jpeg"><div>Modify Patients</div></button>
+      <button id= "supply-button" onclick="supply()"><div class = col></div><img src = "supply.jpg"><div>Supplies</div></button>
+      <button id= "calender-button" onclick="calender()"><div class = col></div><img src = "calender.jpeg"><div>View/Modify Schedule</div></button>
+      <button id= "messages-button" onclick="messages()"><div class = col></div><img src = "messages.jpeg"><div>Messages</div></button>
+
+    </div>
+    
+
+    <div class="col-md-12" id="mainColumn">
+      
+      <div>
+        <text id = title> <img src = "medicheck.jpeg"> MEDICHECK</text>
+        <text id = time> 10/24 11:05pm</text>
+      </div>
+      <text id ="welcome">Welcome Alex</text>
+      <img id = "cal" src = "calender-month.jpeg"> 
+    </div>
+
+
+  </div> <!-- class="row" -->
+</div> <!-- class="container" -->
+
+</body>
+
+</html>
